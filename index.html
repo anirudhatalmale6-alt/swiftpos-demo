@@ -1417,6 +1417,456 @@ button { cursor: pointer; border: none; background: none; }
 .icon-bakery { background: rgba(234,88,12,0.12); color: #ea580c; }
 .icon-household { background: rgba(20,184,166,0.12); color: #14b8a6; }
 .icon-personal { background: rgba(236,72,153,0.12); color: #ec4899; }
+
+/* ═══════════════════════════════════════════
+   HEADER NAV TABS
+   ═══════════════════════════════════════════ */
+.header-nav {
+  display: flex; gap: 4px;
+  margin-left: 16px;
+  background: rgba(255,255,255,0.08);
+  border-radius: var(--radius-sm);
+  padding: 3px;
+}
+
+.nav-tab {
+  padding: 6px 16px;
+  border-radius: 4px;
+  color: rgba(255,255,255,0.5);
+  font-size: 13px;
+  font-weight: 600;
+  font-family: var(--font-body);
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.nav-tab:hover { color: rgba(255,255,255,0.8); background: rgba(255,255,255,0.05); }
+.nav-tab.active { color: var(--primary); background: var(--accent); }
+
+/* ═══════════════════════════════════════════
+   PRODUCTS MANAGEMENT SCREEN
+   ═══════════════════════════════════════════ */
+.products-screen {
+  height: calc(100vh - var(--header-h));
+  overflow: hidden;
+}
+
+.pm-container {
+  display: flex;
+  height: 100%;
+}
+
+.pm-sidebar {
+  width: 360px;
+  min-width: 360px;
+  background: var(--card-bg);
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+}
+
+.pm-sidebar-header {
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border);
+}
+
+.pm-sidebar-header h3 {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.pm-add-btn {
+  padding: 8px 16px;
+  background: var(--accent);
+  color: var(--primary);
+  border-radius: var(--radius-sm);
+  font-size: 12px;
+  font-weight: 700;
+  transition: var(--transition);
+}
+
+.pm-add-btn:hover { background: var(--accent-hover); }
+
+.pm-search {
+  padding: 12px 20px;
+  position: relative;
+  border-bottom: 1px solid var(--border);
+}
+
+.pm-search i {
+  position: absolute;
+  left: 32px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+.pm-search input {
+  width: 100%;
+  padding: 8px 12px 8px 34px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  outline: none;
+  background: var(--surface);
+}
+
+.pm-search input:focus { border-color: var(--accent); background: #fff; }
+
+.pm-filter-cats {
+  display: flex;
+  gap: 6px;
+  padding: 10px 20px;
+  overflow-x: auto;
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.pm-filter-cats::-webkit-scrollbar { height: 0; }
+
+.pm-cat-pill {
+  padding: 4px 12px;
+  border-radius: 50px;
+  font-size: 11px;
+  font-weight: 600;
+  white-space: nowrap;
+  background: var(--surface);
+  color: var(--text-secondary);
+  transition: var(--transition);
+  border: 1px solid transparent;
+}
+
+.pm-cat-pill:hover { background: var(--surface-alt); }
+.pm-cat-pill.active { background: var(--primary); color: #fff; }
+
+.pm-product-list {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.pm-product-item {
+  padding: 12px 20px;
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.pm-product-item:hover { background: var(--accent-glow); }
+.pm-product-item.active { background: rgba(245,158,11,0.12); border-left: 3px solid var(--accent); }
+
+.pm-product-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.pm-product-info { flex: 1; min-width: 0; }
+
+.pm-product-info .name {
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.pm-product-info .meta {
+  font-size: 11px;
+  color: var(--text-muted);
+  display: flex;
+  gap: 8px;
+  margin-top: 2px;
+}
+
+.pm-product-info .meta .cat {
+  text-transform: capitalize;
+}
+
+.pm-product-price {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent-hover);
+}
+
+/* Form Area */
+.pm-form-area {
+  flex: 1;
+  overflow-y: auto;
+  background: var(--surface);
+}
+
+.pm-empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: var(--text-muted);
+  text-align: center;
+  padding: 40px;
+}
+
+.pm-empty-state i {
+  font-size: 48px;
+  opacity: 0.2;
+  margin-bottom: 16px;
+}
+
+.pm-empty-state h3 {
+  font-family: var(--font-display);
+  font-size: 20px;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+}
+
+.pm-empty-state p {
+  font-size: 13px;
+  max-width: 400px;
+  line-height: 1.6;
+}
+
+.pm-form {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.pm-form-header {
+  padding: 16px 24px;
+  background: var(--card-bg);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.pm-form-header h3 {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.pm-btn-delete {
+  padding: 6px 14px;
+  background: rgba(239,68,68,0.1);
+  color: var(--danger);
+  border-radius: var(--radius-sm);
+  font-size: 12px;
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.pm-btn-delete:hover { background: rgba(239,68,68,0.2); }
+
+.pm-form-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 24px;
+}
+
+.pm-section {
+  background: var(--card-bg);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  margin-bottom: 20px;
+  border: 1px solid var(--border);
+}
+
+.pm-section-title {
+  font-size: 14px;
+  font-weight: 700;
+  font-family: var(--font-display);
+  color: var(--text);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pm-section-title i { color: var(--accent); }
+
+.pm-add-uom-btn {
+  margin-left: auto;
+  padding: 4px 12px;
+  background: var(--accent);
+  color: var(--primary);
+  border-radius: 50px;
+  font-size: 11px;
+  font-weight: 700;
+  transition: var(--transition);
+}
+
+.pm-add-uom-btn:hover { background: var(--accent-hover); }
+
+.pm-uom-info {
+  padding: 12px 14px;
+  background: rgba(245,158,11,0.06);
+  border: 1px solid rgba(245,158,11,0.15);
+  border-radius: var(--radius-sm);
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-bottom: 16px;
+  line-height: 1.6;
+}
+
+.pm-field-row {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+
+.pm-field { flex: 1; }
+
+.pm-field label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 6px;
+}
+
+.pm-field input,
+.pm-field select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  outline: none;
+  transition: var(--transition);
+  background: #fff;
+}
+
+.pm-field input:focus,
+.pm-field select:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-glow);
+}
+
+/* UOM Table */
+.pm-uom-table { border: 1px solid var(--border); border-radius: var(--radius-sm); overflow: hidden; }
+
+.pm-uom-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background: var(--primary);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.pm-uom-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border);
+  transition: var(--transition);
+}
+
+.pm-uom-row:last-child { border-bottom: none; }
+.pm-uom-row:hover { background: rgba(245,158,11,0.03); }
+
+.pm-uom-row input,
+.pm-uom-row select {
+  width: 100%;
+  padding: 7px 10px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  font-size: 12px;
+  outline: none;
+}
+
+.pm-uom-row input:focus { border-color: var(--accent); }
+
+.pm-uom-row .uom-base-toggle {
+  width: 100%;
+  padding: 7px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  text-align: center;
+  transition: var(--transition);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text-muted);
+}
+
+.pm-uom-row .uom-base-toggle.is-base {
+  background: var(--success);
+  color: #fff;
+  border-color: var(--success);
+}
+
+.pm-uom-remove {
+  width: 40px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  border-radius: 4px;
+  transition: var(--transition);
+  flex-shrink: 0;
+}
+
+.pm-uom-remove:hover { color: var(--danger); background: rgba(239,68,68,0.1); }
+
+.pm-form-footer {
+  padding: 16px 24px;
+  background: var(--card-bg);
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.pm-btn-cancel {
+  padding: 10px 20px;
+  background: var(--surface);
+  color: var(--text-secondary);
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.pm-btn-cancel:hover { background: var(--surface-alt); }
+
+.pm-btn-save {
+  padding: 10px 24px;
+  background: var(--success);
+  color: #fff;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  font-weight: 700;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.pm-btn-save:hover { background: var(--success-dark); }
 </style>
 </head>
 <body>
@@ -1428,9 +1878,13 @@ button { cursor: pointer; border: none; background: none; }
       <div class="logo-icon">S</div>
       <div class="logo-text">Swift<span>POS</span></div>
     </div>
+    <nav class="header-nav">
+      <button class="nav-tab active" data-screen="pos" onclick="POS.switchScreen('pos')"><i class="fas fa-cash-register"></i> POS</button>
+      <button class="nav-tab" data-screen="products" onclick="POS.switchScreen('products')"><i class="fas fa-boxes-stacked"></i> Products</button>
+    </nav>
   </div>
   <div class="header-center">
-    <div class="header-shortcuts">
+    <div class="header-shortcuts" id="headerShortcuts">
       <div class="kbd-hint"><span class="kbd">F1</span> New Sale</div>
       <div class="kbd-hint"><span class="kbd">F2</span> Pay</div>
       <div class="kbd-hint"><span class="kbd">F3</span> Hold</div>
@@ -1541,6 +1995,128 @@ button { cursor: pointer; border: none; background: none; }
         <i class="fas fa-credit-card"></i>
         Pay <span class="amount" id="payAmount">0.00</span>
       </button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ PRODUCTS MANAGEMENT SCREEN ═══ -->
+<div class="products-screen" id="productsScreen" style="display:none;">
+  <div class="pm-container">
+    <!-- Left sidebar: product list -->
+    <div class="pm-sidebar">
+      <div class="pm-sidebar-header">
+        <h3><i class="fas fa-boxes-stacked" style="color:var(--accent);margin-right:8px"></i>Products</h3>
+        <button class="pm-add-btn" onclick="ProductMgr.newProduct()"><i class="fas fa-plus"></i> Add New</button>
+      </div>
+      <div class="pm-search">
+        <i class="fas fa-search"></i>
+        <input type="text" id="pmSearchInput" placeholder="Search products..." oninput="ProductMgr.filterList()">
+      </div>
+      <div class="pm-filter-cats" id="pmFilterCats"></div>
+      <div class="pm-product-list" id="pmProductList"></div>
+    </div>
+
+    <!-- Right: product edit form -->
+    <div class="pm-form-area" id="pmFormArea">
+      <div class="pm-empty-state" id="pmEmptyState">
+        <i class="fas fa-box-open"></i>
+        <h3>Product Management</h3>
+        <p>Select a product from the list to edit, or click "Add New" to create a new product.</p>
+        <p style="margin-top:12px;font-size:12px;color:var(--text-muted);">Here you can set up multiple <strong>Units of Measure</strong> per product with different factors and prices.</p>
+      </div>
+      <div class="pm-form" id="pmForm" style="display:none;">
+        <div class="pm-form-header">
+          <h3 id="pmFormTitle">Edit Product</h3>
+          <div class="pm-form-actions-top">
+            <button class="pm-btn-delete" id="pmDeleteBtn" onclick="ProductMgr.deleteProduct()"><i class="fas fa-trash"></i> Delete</button>
+          </div>
+        </div>
+
+        <div class="pm-form-body">
+          <div class="pm-section">
+            <div class="pm-section-title"><i class="fas fa-info-circle"></i> Basic Information</div>
+            <div class="pm-field-row">
+              <div class="pm-field" style="flex:2">
+                <label>Product Name</label>
+                <input type="text" id="pmName" placeholder="e.g., Coca Cola 500ml">
+              </div>
+              <div class="pm-field" style="flex:1">
+                <label>Category</label>
+                <select id="pmCategory">
+                  <option value="beverages">Beverages</option>
+                  <option value="snacks">Snacks</option>
+                  <option value="dairy">Dairy</option>
+                  <option value="bakery">Bakery</option>
+                  <option value="household">Household</option>
+                  <option value="personal">Personal Care</option>
+                </select>
+              </div>
+            </div>
+            <div class="pm-field-row">
+              <div class="pm-field">
+                <label>Stock Quantity (in base units)</label>
+                <input type="number" id="pmStock" placeholder="0" min="0">
+              </div>
+              <div class="pm-field">
+                <label>Icon</label>
+                <select id="pmIcon">
+                  <option value="fa-bottle-water">Bottle</option>
+                  <option value="fa-bottle-droplet">Bottle Drop</option>
+                  <option value="fa-beer-mug-empty">Beer Mug</option>
+                  <option value="fa-glass-water">Glass</option>
+                  <option value="fa-mug-hot">Mug</option>
+                  <option value="fa-cookie">Cookie</option>
+                  <option value="fa-cookie-bite">Cookie Bite</option>
+                  <option value="fa-candy-cane">Candy</option>
+                  <option value="fa-seedling">Seed</option>
+                  <option value="fa-jar">Jar</option>
+                  <option value="fa-cheese">Cheese</option>
+                  <option value="fa-cube">Cube</option>
+                  <option value="fa-bread-slice">Bread</option>
+                  <option value="fa-stroopwafel">Pastry</option>
+                  <option value="fa-cake-candles">Cake</option>
+                  <option value="fa-toilet-paper">Toilet Paper</option>
+                  <option value="fa-pump-soap">Soap Pump</option>
+                  <option value="fa-jug-detergent">Detergent</option>
+                  <option value="fa-spray-can-sparkles">Spray</option>
+                  <option value="fa-tooth">Tooth</option>
+                  <option value="fa-pump-medical">Lotion</option>
+                  <option value="fa-soap">Soap</option>
+                  <option value="fa-box">Box</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="pm-section">
+            <div class="pm-section-title">
+              <i class="fas fa-ruler"></i> Units of Measure (UOM)
+              <button class="pm-add-uom-btn" onclick="ProductMgr.addUOM()"><i class="fas fa-plus"></i> Add UOM</button>
+            </div>
+            <div class="pm-uom-info">
+              <i class="fas fa-lightbulb" style="color:var(--accent)"></i>
+              Set up different units for selling this product. The <strong>base unit</strong> (factor=1) is the smallest unit. Other units are multiples of the base unit.
+              <br>Example: If base unit is "Piece" (factor=1), then "Box" with factor=12 means 1 Box = 12 Pieces.
+            </div>
+            <div class="pm-uom-table">
+              <div class="pm-uom-header">
+                <span style="flex:2">Unit Name</span>
+                <span style="flex:1">Factor</span>
+                <span style="flex:1">Base Unit</span>
+                <span style="flex:1.5">Buying Price</span>
+                <span style="flex:1.5">Selling Price</span>
+                <span style="width:40px"></span>
+              </div>
+              <div id="pmUOMRows"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pm-form-footer">
+          <button class="pm-btn-cancel" onclick="ProductMgr.cancel()"><i class="fas fa-times"></i> Cancel</button>
+          <button class="pm-btn-save" onclick="ProductMgr.save()"><i class="fas fa-check"></i> Save Product</button>
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -2380,6 +2956,264 @@ function padRow(a, b, c, d, w) {
   const cols = [16, 5, 9, 10];
   return a.padEnd(cols[0]) + b.padEnd(cols[1]) + c.padEnd(cols[2]) + d.padStart(cols[3]);
 }
+
+/* ─── Screen Switching ─── */
+POS.switchScreen = function(screen) {
+  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+  document.querySelector(`.nav-tab[data-screen="${screen}"]`).classList.add('active');
+
+  const posBody = document.querySelector('.pos-body');
+  const productsScreen = document.getElementById('productsScreen');
+  const shortcuts = document.getElementById('headerShortcuts');
+
+  if (screen === 'pos') {
+    posBody.style.display = 'flex';
+    productsScreen.style.display = 'none';
+    shortcuts.style.display = 'flex';
+  } else {
+    posBody.style.display = 'none';
+    productsScreen.style.display = 'block';
+    shortcuts.style.display = 'none';
+    ProductMgr.init();
+  }
+};
+
+/* ═══════════════════════════════════════════════════════════
+   PRODUCT MANAGER
+   ═══════════════════════════════════════════════════════════ */
+const ProductMgr = {
+  selectedId: null,
+  filterCat: 'all',
+  initialized: false,
+
+  init() {
+    if (!this.initialized) {
+      this.renderFilterCats();
+      this.initialized = true;
+    }
+    this.renderList();
+  },
+
+  renderFilterCats() {
+    const container = document.getElementById('pmFilterCats');
+    container.innerHTML = CATEGORIES.map(c =>
+      `<button class="pm-cat-pill ${c.id === this.filterCat ? 'active' : ''}" data-cat="${c.id}" onclick="ProductMgr.setFilter('${c.id}')">${c.name}</button>`
+    ).join('');
+  },
+
+  setFilter(cat) {
+    this.filterCat = cat;
+    document.querySelectorAll('.pm-cat-pill').forEach(b => b.classList.remove('active'));
+    document.querySelector(`.pm-cat-pill[data-cat="${cat}"]`).classList.add('active');
+    this.renderList();
+  },
+
+  getFiltered() {
+    const q = (document.getElementById('pmSearchInput')?.value || '').toLowerCase();
+    return PRODUCTS.filter(p => {
+      const matchCat = this.filterCat === 'all' || p.category === this.filterCat;
+      const matchSearch = !q || p.name.toLowerCase().includes(q);
+      return matchCat && matchSearch;
+    });
+  },
+
+  filterList() { this.renderList(); },
+
+  renderList() {
+    const products = this.getFiltered();
+    const list = document.getElementById('pmProductList');
+    if (!products.length) {
+      list.innerHTML = `<div style="padding:30px;text-align:center;color:var(--text-muted);font-size:13px;">No products found</div>`;
+      return;
+    }
+    list.innerHTML = products.map(p => {
+      const uomCount = p.uom.length;
+      return `<div class="pm-product-item ${this.selectedId === p.id ? 'active' : ''}" onclick="ProductMgr.selectProduct(${p.id})">
+        <div class="pm-product-icon icon-${p.category}"><i class="fas ${p.icon}"></i></div>
+        <div class="pm-product-info">
+          <div class="name">${p.name}</div>
+          <div class="meta">
+            <span class="cat">${p.category}</span>
+            <span>${uomCount} UOM${uomCount > 1 ? 's' : ''}</span>
+            <span>Stock: ${p.stock}</span>
+          </div>
+        </div>
+        <div class="pm-product-price">${POS.fmt(p.sellPrice)}</div>
+      </div>`;
+    }).join('');
+  },
+
+  selectProduct(id) {
+    this.selectedId = id;
+    const p = PRODUCTS.find(x => x.id === id);
+    if (!p) return;
+
+    document.getElementById('pmEmptyState').style.display = 'none';
+    document.getElementById('pmForm').style.display = 'flex';
+    document.getElementById('pmFormTitle').textContent = 'Edit Product';
+    document.getElementById('pmDeleteBtn').style.display = 'inline-flex';
+
+    document.getElementById('pmName').value = p.name;
+    document.getElementById('pmCategory').value = p.category;
+    document.getElementById('pmStock').value = p.stock;
+    document.getElementById('pmIcon').value = p.icon;
+
+    this.renderUOMRows(p.uom, p.buyPrice, p.sellPrice);
+    this.renderList();
+  },
+
+  newProduct() {
+    this.selectedId = null;
+    document.getElementById('pmEmptyState').style.display = 'none';
+    document.getElementById('pmForm').style.display = 'flex';
+    document.getElementById('pmFormTitle').textContent = 'Add New Product';
+    document.getElementById('pmDeleteBtn').style.display = 'none';
+
+    document.getElementById('pmName').value = '';
+    document.getElementById('pmCategory').value = 'beverages';
+    document.getElementById('pmStock').value = '';
+    document.getElementById('pmIcon').value = 'fa-box';
+
+    this.renderUOMRows([{ name: 'Pcs', factor: 1, base: true }], 0, 0);
+  },
+
+  renderUOMRows(uoms, defaultBuy, defaultSell) {
+    const container = document.getElementById('pmUOMRows');
+    container.innerHTML = uoms.map((u, i) => {
+      const buyPrice = u.factor === 1 ? defaultBuy : (defaultBuy * u.factor);
+      const sellPrice = u.factor === 1 ? defaultSell : (defaultSell * u.factor);
+      return this.uomRowHTML(i, u.name, u.factor, u.base, buyPrice, sellPrice);
+    }).join('');
+  },
+
+  uomRowHTML(index, name, factor, isBase, buyPrice, sellPrice) {
+    return `<div class="pm-uom-row" data-index="${index}">
+      <div style="flex:2"><input type="text" value="${name}" placeholder="Unit name" data-field="name"></div>
+      <div style="flex:1"><input type="number" value="${factor}" min="1" placeholder="1" data-field="factor"></div>
+      <div style="flex:1">
+        <button class="uom-base-toggle ${isBase ? 'is-base' : ''}" onclick="ProductMgr.toggleBase(${index})">${isBase ? 'YES' : 'No'}</button>
+      </div>
+      <div style="flex:1.5"><input type="number" value="${buyPrice}" min="0" step="0.01" placeholder="0.00" data-field="buy" style="font-family:var(--font-mono)"></div>
+      <div style="flex:1.5"><input type="number" value="${sellPrice}" min="0" step="0.01" placeholder="0.00" data-field="sell" style="font-family:var(--font-mono)"></div>
+      <button class="pm-uom-remove" onclick="ProductMgr.removeUOM(${index})" title="Remove UOM"><i class="fas fa-times"></i></button>
+    </div>`;
+  },
+
+  addUOM() {
+    const container = document.getElementById('pmUOMRows');
+    const index = container.children.length;
+    container.insertAdjacentHTML('beforeend', this.uomRowHTML(index, '', 1, false, 0, 0));
+  },
+
+  removeUOM(index) {
+    const rows = document.querySelectorAll('#pmUOMRows .pm-uom-row');
+    if (rows.length <= 1) { POS.toast('Must have at least one UOM', 'error'); return; }
+    rows[index]?.remove();
+    // Re-index
+    document.querySelectorAll('#pmUOMRows .pm-uom-row').forEach((row, i) => {
+      row.dataset.index = i;
+      row.querySelector('.uom-base-toggle').setAttribute('onclick', `ProductMgr.toggleBase(${i})`);
+      row.querySelector('.pm-uom-remove').setAttribute('onclick', `ProductMgr.removeUOM(${i})`);
+    });
+  },
+
+  toggleBase(index) {
+    document.querySelectorAll('#pmUOMRows .uom-base-toggle').forEach((btn, i) => {
+      if (i === index) {
+        btn.classList.add('is-base');
+        btn.textContent = 'YES';
+      } else {
+        btn.classList.remove('is-base');
+        btn.textContent = 'No';
+      }
+    });
+  },
+
+  getFormData() {
+    const name = document.getElementById('pmName').value.trim();
+    const category = document.getElementById('pmCategory').value;
+    const stock = parseInt(document.getElementById('pmStock').value) || 0;
+    const icon = document.getElementById('pmIcon').value;
+
+    const uoms = [];
+    let baseBuy = 0, baseSell = 0;
+    document.querySelectorAll('#pmUOMRows .pm-uom-row').forEach(row => {
+      const uomName = row.querySelector('[data-field="name"]').value.trim();
+      const factor = parseInt(row.querySelector('[data-field="factor"]').value) || 1;
+      const isBase = row.querySelector('.uom-base-toggle').classList.contains('is-base');
+      const buy = parseFloat(row.querySelector('[data-field="buy"]').value) || 0;
+      const sell = parseFloat(row.querySelector('[data-field="sell"]').value) || 0;
+      if (uomName) {
+        uoms.push({ name: uomName, factor, base: isBase });
+        if (isBase || factor === 1) { baseBuy = buy; baseSell = sell; }
+      }
+    });
+
+    return { name, category, stock, icon, uoms, baseBuy, baseSell };
+  },
+
+  save() {
+    const data = this.getFormData();
+    if (!data.name) { POS.toast('Product name is required', 'error'); return; }
+    if (data.uoms.length === 0) { POS.toast('Add at least one UOM', 'error'); return; }
+
+    if (this.selectedId) {
+      // Edit existing
+      const p = PRODUCTS.find(x => x.id === this.selectedId);
+      if (p) {
+        p.name = data.name;
+        p.category = data.category;
+        p.stock = data.stock;
+        p.icon = data.icon;
+        p.uom = data.uoms;
+        p.buyPrice = data.baseBuy;
+        p.sellPrice = data.baseSell;
+      }
+      POS.toast(`"${data.name}" updated`, 'success');
+    } else {
+      // New product
+      const newId = Math.max(...PRODUCTS.map(p => p.id)) + 1;
+      PRODUCTS.push({
+        id: newId,
+        name: data.name,
+        category: data.category,
+        buyPrice: data.baseBuy,
+        sellPrice: data.baseSell,
+        stock: data.stock,
+        icon: data.icon,
+        uom: data.uoms,
+      });
+      this.selectedId = newId;
+      POS.toast(`"${data.name}" created`, 'success');
+    }
+
+    this.renderList();
+    // Also refresh POS product grid
+    POS.renderCategories();
+    POS.renderProducts();
+  },
+
+  deleteProduct() {
+    if (!this.selectedId) return;
+    const p = PRODUCTS.find(x => x.id === this.selectedId);
+    if (!p) return;
+    const idx = PRODUCTS.indexOf(p);
+    PRODUCTS.splice(idx, 1);
+    POS.toast(`"${p.name}" deleted`, 'info');
+    this.selectedId = null;
+    this.cancel();
+    this.renderList();
+    POS.renderCategories();
+    POS.renderProducts();
+  },
+
+  cancel() {
+    this.selectedId = null;
+    document.getElementById('pmForm').style.display = 'none';
+    document.getElementById('pmEmptyState').style.display = 'flex';
+    this.renderList();
+  },
+};
 
 /* ─── Initialize ─── */
 POS.init();
